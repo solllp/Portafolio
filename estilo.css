@@ -14,9 +14,11 @@ body {
     scroll-snap-type: y proximity;
 }
 
-/*.cambio{
+/*
+.cambio {
     background-image: url('sales.gif');
 }
+*/
 
 /*Secciones en general*/
 
@@ -95,10 +97,17 @@ body {
 .section3 .container {
     position: absolute;
     inset: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
     padding: 24px;
+    text-align: center;
+}
+
+.section3 .container .timer {
+    width: min(100%, 940px);
+    margin: 0 auto;
 }
 
 .section6 .fixed-holder {
@@ -120,21 +129,6 @@ body {
 
 .section10 {
     position: relative;
-}
-
-.section10 a {
-    position: absolute;
-    inset: auto;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.section10 .Bconfirmar {
-    top: 58%;
-}
-
-.section10 .Bconfirmar2 {
-    top: 74%;
 }
 
 /*Secciones de imagenes*/
@@ -180,10 +174,32 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 24px;
-    z-index: 2;
+
     width: 100%;
-    max-width: none;
+    padding: 24px;
+
+    z-index: 2;
+}
+
+.section3 .container {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 24px;
+}
+
+.section3 .container .timer {
+    width: fit-content;
+    max-width: 100%;
+
+    margin: 0 auto;
 }
 
 .container h2 {
@@ -202,12 +218,14 @@ body {
 .timer {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+
+    justify-content: center;
+    align-items: center;
 
     gap: 12px;
 
-    width: 100%;
-    max-width: 1100px;
+    width: fit-content;
+    max-width: 100%;
 
     padding: 14px;
 
@@ -219,15 +237,15 @@ body {
     backdrop-filter: blur(18px);
 
     box-sizing: border-box;
-    overflow-x: hidden;
 
     animation: pulseGlow 4s ease-in-out infinite alternate;
 }
 
 .timer > div {
-    flex: 1 1 180px;
 
-    min-width: 120px;
+    flex: 0 1 140px;
+
+    min-width: 70px;
 
     padding: 16px 14px;
 
@@ -242,6 +260,8 @@ body {
 
     box-sizing: border-box;
 
+    text-align: center;
+
     animation: fadeIn 0.8s ease forwards;
 }
 
@@ -252,7 +272,6 @@ body {
 }
 
 .timer > div.finished {
-    grid-column: 1 / -1;
 
     padding: 28px 22px;
 
@@ -296,17 +315,30 @@ body {
     color: yellow;
 }
 
-/*BOTÓN CONFIRMAR*/
+/* BOTONES CONFIRMAR HORIZONTALES */
+
+.section10 {
+    position: relative;
+}
+
+.botones-confirmar {
+    position: absolute;
+    inset: auto;
+    bottom: 8%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    width: 100%;
+    z-index: 20;
+}
 
 .Bconfirmar,
 .Bconfirmar2 {
-    position: relative;
-    left: auto;
-    bottom: auto;
-    transform: none;
-    margin: 0 auto;
-    width: min(260px, 100%);
-    max-width: 260px;
+    width: clamp(120px, 22vw, 240px);
     height: auto;
     cursor: pointer;
     transition: transform 0.25s ease;
@@ -318,7 +350,7 @@ body {
 
 .Bconfirmar:hover,
 .Bconfirmar2:hover {
-    transform: scale(1.03);
+    transform: scale(1.05);
 }
 
 /*BORDE GLOW*/
@@ -562,42 +594,58 @@ body {
     }
 
     .timer {
-        width: 100%;
-        max-width: 100%;
+
+        justify-content: center;
+        align-items: center;
+
         gap: 6px;
+
+        width: fit-content;
+        max-width: 100%;
+
         padding: 10px;
+
         border-radius: 16px;
+
+        margin: 0 auto;
     }
 
     .timer > div {
-        flex: 1 1 auto;
-        min-width: 60px;
+
+        flex: 0 1 65px;
+
+        min-width: 65px;
+
         padding: 10px 6px;
+
         border-radius: 12px;
-        font-size: 0.8rem;
+
+        text-align: center;
     }
 
     .timer div div:first-child {
+
         font-size: clamp(1.4rem, 6vw, 2rem);
+
         line-height: 1;
     }
 
     .label {
+
         font-size: 0.35rem;
+
         margin-top: 3px;
+
         letter-spacing: 0.1em;
+    }
+    .botones-confirmar {
+        bottom: 6%;
+        gap: 10px;
     }
 
     .Bconfirmar,
     .Bconfirmar2 {
-        width: min(85%, 180px);
-        max-width: 180px;
-        margin: 8px auto;
-    }
-
-    .section10 {
-        gap: 12px;
-        padding: 12px;
+        width: 135px;
     }
 
     .section8 .carta {
@@ -622,6 +670,7 @@ body {
     }
 }
 
+
 @media (max-width: 360px) {
     .section {
         padding: 10px;
@@ -644,10 +693,6 @@ body {
         font-size: 0.3rem;
     }
 
-    .Bconfirmar,
-    .Bconfirmar2 {
-        width: min(80%, 160px);
-    }
 }
 
 
