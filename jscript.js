@@ -100,22 +100,41 @@ setTimeout(() => {
 
 // Audio rewind control: disable rewind button for 2s after use
 document.addEventListener('DOMContentLoaded', () => {
-    const audio = document.getElementById('musica');
-    const rewindBtn = document.getElementById('rewindBtn');
-    if (!audio || !rewindBtn) return;
 
-    rewindBtn.addEventListener('click', () => {
-        if (rewindBtn.disabled) return;
-        // Seek to start
-        try {
-            audio.currentTime = 0;
-        } catch (e) {}
-        // briefly disable the button for 2 seconds
-        rewindBtn.disabled = true;
-        rewindBtn.classList.add('disabled');
-        setTimeout(() => {
-            rewindBtn.disabled = false;
-            rewindBtn.classList.remove('disabled');
-        }, 2000);
+    const audio = document.getElementById('musica');
+
+    const playPauseBtn = document.getElementById('playPauseBtn');
+
+    const restartBtn = document.getElementById('restartBtn');
+
+    // PLAY / PAUSE
+    playPauseBtn.addEventListener('click', () => {
+
+        if(audio.paused){
+
+            audio.play();
+
+            playPauseBtn.textContent = '⏸';
+
+        }else{
+
+            audio.pause();
+
+            playPauseBtn.textContent = '▶';
+
+        }
+
     });
+
+    // RESTART
+    restartBtn.addEventListener('click', () => {
+
+        audio.currentTime = 0;
+
+        audio.play();
+
+        playPauseBtn.textContent = '⏸';
+
+    });
+
 });

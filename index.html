@@ -18,13 +18,25 @@
 
         <section class="section section2">
             <img class="bg-img" src="img2.png" alt="Imagen 2">
-            <div class="musica">
-                <button id="rewindBtn" class="rewind-btn" aria-label="Retroceder">⏮</button>
-                <!--  Música de fondo   -->
-                <audio id="musica" controls loop>
-                    <source src="m.mp3" type="audio/mpeg">
-                </audio>
-            </div>
+<div class="musica">
+
+    <audio id="musica" loop>
+        <source src="m.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="player">
+
+        <button id="playPauseBtn" class="player-btn">
+            ▶
+        </button>
+
+        <button id="restartBtn" class="player-btn">
+            ⏮
+        </button>
+
+    </div>
+
+</div>
         </section>
 
         <section class="section section3">
