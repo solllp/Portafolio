@@ -713,3 +713,30 @@ img {
     max-width: 100%;
     display: block;
 }
+
+/* SOLO para pantallas grandes */
+@media (min-width: 1400px){
+
+    body{
+        background: #e9e9e9;
+    }
+
+    .page-container{
+        max-width: 1000px;
+        margin: 0 auto;
+        background: white;
+        position: relative;
+    }
+    .timer > div {
+        min-width: 200px;
+        padding: 8px 4px;
+    }
+
+    .timer div div:first-child {
+        font-size: clamp(1.2rem, 5vw, 1.6rem);
+    }
+
+    .label {
+        font-size: 1.3rem;
+    }
+}
