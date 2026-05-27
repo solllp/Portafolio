@@ -1,0 +1,475 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+    scroll-behavior: smooth;
+    font-family: 'Inter', sans-serif;
+    color: #ffffff;
+    overflow-x: hidden;
+
+    /*background-image: url('img.png');*/
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: background 4s ease;
+}
+
+body {
+    scroll-snap-type: y proximity;
+}
+
+/*.cambio{
+    background-image: url('sales.gif');
+}
+
+/*Secciones en general*/
+
+.musica {
+    position: absolute;
+    top: 8%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    z-index: 20;
+}
+
+.musica audio {
+    width: clamp(220px, 28vw, 420px);
+    height: auto;
+}
+
+.rewind-btn {
+    background: rgba(0,0,0,0.45);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.15);
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.05rem;
+}
+
+.rewind-btn:disabled,
+.rewind-btn.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+
+    scroll-snap-align: center;
+
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    background-attachment: scroll;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/*Secciones de imagenes*/
+
+.section1 {
+    background-image: url('img1.jpg');
+}
+
+.section2 {
+    background-image: url('img2.png');
+}
+
+.section3 {
+    background-image: url('img3.png');
+}
+
+.section4 {
+    background-image: url('img6.png');
+}
+
+.section5 {
+    background-image: url('img5.png');
+}
+
+.section6 {
+    background-image: url('fondo.png');
+}
+
+.section7 {
+    background-image: url('img7.png');
+}
+
+.section8 {
+    background-image: url('img8.png');
+}
+
+.section9 {
+    background-image: url('img9.png');
+}
+
+.section10 {
+    background-image: url('img10.png');
+}
+
+.section11 {
+    background-image: url('img11.png');
+}
+
+/*CARTA GIF*/
+
+.section8 .carta {
+    position: relative;
+    margin: 0 auto;
+    transform: none;
+    width: clamp(110px, 20vw, 150px);
+    height: auto;
+}
+
+/*CONTADOR*/
+
+.container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 24px;
+    z-index: 2;
+    width: 100%;
+    max-width: none;
+}
+
+.container h2 {
+    font-family: 'Playfair Display', serif;
+
+    font-size: clamp(2rem, 4vw, 3.6rem);
+
+    margin: 0 0 18px;
+
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+
+    color: #ffffff;
+}
+
+.timer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    gap: 12px;
+
+    width: 100%;
+    max-width: 1100px;
+
+    padding: 14px;
+
+    background: rgba(255, 255, 255, 0.16);
+
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    border-radius: 26px;
+
+    backdrop-filter: blur(18px);
+
+    box-sizing: border-box;
+    overflow-x: hidden;
+
+    animation: pulseGlow 4s ease-in-out infinite alternate;
+}
+
+.timer > div {
+    flex: 1 1 180px;
+
+    min-width: 120px;
+
+    padding: 16px 14px;
+
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 22px;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    backdrop-filter: blur(12px);
+
+    color: rgb(230, 18, 18);
+
+    box-sizing: border-box;
+
+    animation: fadeIn 0.8s ease forwards;
+}
+
+.timer > div.animate {
+    animation:
+        fadeIn 0.3s ease-out,
+        countPop 0.4s ease forwards;
+}
+
+.timer > div.finished {
+    grid-column: 1 / -1;
+
+    padding: 28px 22px;
+
+    background: rgba(87, 33, 225, 0.22);
+
+    border-color: rgba(255, 4, 201, 0.5);
+
+    color: #ff003c;
+
+    font-family: 'Playfair Display', serif;
+
+    font-size: clamp(2.4rem, 6vw, 4rem);
+
+    text-transform: uppercase;
+
+    animation: celebration 1.2s ease-in-out infinite alternate;
+}
+
+.timer div div:first-child {
+    font-family: 'Playfair Display', serif;
+
+    font-size: clamp(2.2rem, 4vw, 3.2rem);
+
+    font-weight: 700;
+
+    line-height: 1;
+
+    letter-spacing: 0.02em;
+}
+
+.label {
+    margin-top: 8px;
+
+    font-size: 0.45rem;
+
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+
+    opacity: 0.85;
+
+    color: yellow;
+}
+
+/*BOTÓN CONFIRMAR*/
+
+.Bconfirmar,
+.Bconfirmar2 {
+    /* Make confirm buttons flow with section flex layout for responsiveness */
+    position: relative;
+    left: auto;
+    bottom: auto;
+    transform: none;
+    margin: 0 12px;
+    width: clamp(140px, 26vw, 300px);
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.25s ease;
+}
+
+.section6 .Bconfirmar {
+    width: clamp(120px, 20vw, 220px);
+}
+
+.Bconfirmar:hover,
+.Bconfirmar2:hover {
+    transform: scale(1.03);
+}
+
+/*BORDE GLOW*/
+
+.border-glow {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    border: 4px solid transparent;
+
+    border-image:
+        linear-gradient(
+            to right,
+             #ff00aa,
+             #ff0099,
+             #ff66cc
+         ) 1;
+
+     box-shadow:
+         0 0 10px #ff66cc,
+         0 0 20px #ff66cc,
+         0 0 30px #ff66cc,
+         0 0 10px #ff0099,
+         0 0 20px #ff0099,
+         0 0 30px #ff0099;
+
+}
+
+.section::before {
+    content: '';
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+    right: 0;
+
+    height: 4px;
+
+    background:
+        linear-gradient(
+            to right,
+            #ffff00,
+            #ffdd57,
+            #ffff00
+        );
+
+    box-shadow:
+        0 0 10px #ffff00,
+        0 0 20px #ffff00,
+        0 0 30px #ffff00;
+
+    opacity: 0;
+
+    transition: opacity 0.5s ease-in-out;
+
+    z-index: 10;
+
+    pointer-events: none;
+}
+
+.section.active::before {
+    opacity: 1;
+}
+
+
+  /*ANIMACIONES*/
+
+
+@keyframes pulseGlow {
+    from {
+        box-shadow: 0 0 18px rgba(255, 221, 87, 0.15);
+        transform: translateY(0);
+    }
+
+    to {
+        box-shadow: 0 0 32px rgba(255, 221, 87, 0.28);
+        transform: translateY(-3px);
+    }
+}
+
+@keyframes countPop {
+    from {
+        transform: scale(0.92);
+        opacity: 0.75;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes celebration {
+    from {
+        transform: translateY(0);
+
+        text-shadow:
+            0 0 10px rgba(255, 221, 87, 0.6);
+    }
+
+    to {
+        transform: translateY(-6px);
+
+        text-shadow:
+            0 0 28px rgba(255, 221, 87, 1);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/*responsivo*/  
+
+@media (max-width: 720px) {
+
+    .timer {
+        width: 90%;
+        max-width: 90%;
+
+        gap: 10px;
+
+        padding: 12px;
+    }
+
+    .container {
+        padding: 18px;
+    }
+
+    .Bconfirmar {
+        width: 220px;
+    }
+}
+
+@media (max-width: 460px) {
+
+    .container {
+        padding: 16px;
+    }
+
+    .timer {
+        gap: 8px;
+    }
+
+    .timer > div {
+        padding: 14px 12px;
+    }
+
+    .timer div div:first-child {
+        font-size: clamp(1.8rem, 7vw, 2.6rem);
+    }
+
+    .Bconfirmar {
+        width: 190px;
+    }
+
+    .section8 .carta {
+        width: 110px;
+    }
+}
+
+
+/* Fixed-position utilities for buttons inside sections */
+.fixed-holder { position: relative; width: 100%; height: 100%; }
+.fixed-btn { position: absolute; transform: translateX(-50%); }
+.pos-center-bottom { left: 50%; bottom: 6%; transform: translateX(-50%); }
+.pos-center { left: 50%; top: 50%; transform: translate(-50%,-50%); }
+.pos-top-right { right: 6%; top: 6%; transform: none; }
+
+.confirm-btn { width: clamp(140px, 26vw, 300px); display: block; }
+.ubic-img { width: clamp(120px, 20vw, 220px); display: block; }
+
+/* ensure gif stays horizontally centered where placed */
+.section8 .carta { left: 50%; transform: translateX(-50%); }
+
+img {
+    max-width: 100%;
+    display: block;
+}
