@@ -120,10 +120,13 @@ body {
 
 .section8 a {
     position: absolute;
-    inset: 0;
+    inset: auto;
+    top: 35%;
+    left: 10%;
     display: flex;
     justify-content: center;
     align-items: center;
+    transform: none;
 }
 
 .section10 {
@@ -157,11 +160,15 @@ body {
 /*CARTA GIF*/
 
 .section8 .carta {
-    position: relative;
-    margin: 0 auto;
-    transform: none;
-    width: clamp(110px, 20vw, 150px);
-    height: auto;
+   
+    position: absolute;
+    left: 22%;
+    top: 30%;
+    margin: 0;
+    transform: translateY(-50%) translateX(-50%);
+    width: clamp(550px, calc(20vw + 40px), 190px);
+    height: clamp(305px, calc(8.7vw + 40px), 123px);
+
 }
 
 /*CONTADOR*/
@@ -343,8 +350,9 @@ body {
 
 .Bconfirmar,
 .Bconfirmar2 {
-    width: clamp(120px, 22vw, 440px);
-    height: auto;
+    width: clamp(150px, 24vw, 500px);
+    height: clamp(49px, calc(4.6vw + 20px), 115px);
+    object-fit: fill;
     cursor: pointer;
     transition: transform 0.25s ease;
 }
@@ -517,12 +525,9 @@ body {
 
     .Bconfirmar,
     .Bconfirmar2 {
-        width: min(90%, 240px);
-        max-width: 240px;
-    }
-
-    .section8 .carta {
-        width: clamp(100px, 18vw, 140px);
+        width: min(90%, 280px);
+        max-width: 280px;
+        height: 73px;
     }
 
     .ubic-img {
@@ -618,12 +623,8 @@ body {
     }
     .Bconfirmar,
     .Bconfirmar2 {
-        width: 135px;
-    }
-
-    .section8 .carta {
-        width: clamp(90px, 20vw, 120px);
-        margin: 0 auto;
+        width: 175px;
+        height: 53px;
     }
 
     .ubic-img {
@@ -678,9 +679,6 @@ body {
 
 .confirm-btn { width: clamp(140px, 26vw, 300px); display: block; }
 .ubic-img { width: clamp(120px, 20vw, 220px); display: block; }
-
-/* ensure gif stays horizontally centered where placed */
-.section8 .carta { left: 50%; transform: translateX(-50%); }
 
 img {
     max-width: 100%;
