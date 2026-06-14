@@ -322,22 +322,28 @@ body {
 
 .botones-confirmar {
     position: absolute;
-    inset: auto;
-    bottom: 8%;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: row;
+    inset: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     justify-content: center;
     align-items: center;
-    gap: 18px;
+    justify-items: center;
+    gap: 0;
     width: 100%;
+    height: 100%;
     z-index: 20;
+}
+
+.botones-confirmar a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
 .Bconfirmar,
 .Bconfirmar2 {
-    width: clamp(120px, 22vw, 240px);
+    width: clamp(120px, 22vw, 440px);
     height: auto;
     cursor: pointer;
     transition: transform 0.25s ease;
@@ -610,11 +616,6 @@ body {
 
         letter-spacing: 0.1em;
     }
-    .botones-confirmar {
-        bottom: 6%;
-        gap: 10px;
-    }
-
     .Bconfirmar,
     .Bconfirmar2 {
         width: 135px;
