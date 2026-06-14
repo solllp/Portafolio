@@ -59,17 +59,67 @@ document.querySelectorAll('.section').forEach(s => observer.observe(s));
 
 //HORARIO
 const fechaObjetivo = new Date(2026, 5, 14, 13, 0, 0).getTime();
+let contadorFinalizado = false;
+let reboteFinishedId = null;
+
+function iniciarReboteFinished(elemento, area) {
+    if (!elemento || !area || reboteFinishedId) return;
+
+    let x = 24;
+    let y = 24;
+    let velocidadX = 160;
+    let velocidadY = 130;
+    let tiempoAnterior = null;
+
+    function animar(tiempoActual) {
+        if (tiempoAnterior === null) {
+            tiempoAnterior = tiempoActual;
+        }
+
+        const delta = (tiempoActual - tiempoAnterior) / 1000;
+        tiempoAnterior = tiempoActual;
+
+        const maxX = Math.max(0, area.clientWidth - elemento.offsetWidth);
+        const maxY = Math.max(0, area.clientHeight - elemento.offsetHeight);
+
+        x += velocidadX * delta;
+        y += velocidadY * delta;
+
+        if (x <= 0 || x >= maxX) {
+            velocidadX *= -1;
+            x = Math.min(Math.max(x, 0), maxX);
+        }
+
+        if (y <= 0 || y >= maxY) {
+            velocidadY *= -1;
+            y = Math.min(Math.max(y, 0), maxY);
+        }
+
+        elemento.style.left = `${x}px`;
+        elemento.style.top = `${y}px`;
+
+        reboteFinishedId = requestAnimationFrame(animar);
+    }
+
+    reboteFinishedId = requestAnimationFrame(animar);
+}
 
 function actualizarContador() {
     const ahora = new Date().getTime();
     const diferencia = fechaObjetivo - ahora;
 
     if (diferencia <= 0) {
+        if (contadorFinalizado) return;
+
+        contadorFinalizado = true;
+
         const timer = document.querySelector('.timer');
         const faltan = document.querySelector('.faltan');
         faltan.style.display = 'none';
+        timer.classList.add('finished-mode');
 
         timer.innerHTML = '<div class="finished">🥳¡Llegó la hora para celebrar!🥳</div>';
+        iniciarReboteFinished(timer.querySelector('.finished'), timer);
         return;
     }
 
