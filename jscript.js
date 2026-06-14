@@ -58,7 +58,7 @@ document.querySelectorAll('.section').forEach(s => observer.observe(s));
 
 
 //HORARIO
-const fechaObjetivo = new Date(2026, 5, 20, 14, 5, 0).getTime();
+const fechaObjetivo = new Date(2026, 5, 14, 13, 0, 0).getTime();
 
 function actualizarContador() {
     const ahora = new Date().getTime();
@@ -69,7 +69,7 @@ function actualizarContador() {
         const faltan = document.querySelector('.faltan');
         faltan.style.display = 'none';
 
-        timer.innerHTML = '<div class="finished">¡Llegó la hora!</div>';
+        timer.innerHTML = '<div class="finished">🥳¡Llegó la hora para celebrar!🥳</div>';
         return;
     }
 
@@ -93,10 +93,10 @@ function actualizarContador() {
 setInterval(actualizarContador, 1000);
 actualizarContador();
 
-/*
+
 setTimeout(() => {
     document.body.classList.add("cambio");
-}, 23000); // */
+}, 20000); // 20s para sincronizar con el cambio de fondo   
 
 // Audio rewind control: disable rewind button for 2s after use
 document.addEventListener('DOMContentLoaded', () => {
