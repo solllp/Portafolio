@@ -167,7 +167,7 @@ body {
     margin: 0;
     transform: translateY(-50%) translateX(-50%);
     width: clamp(550px, calc(20vw + 40px), 190px);
-    height: clamp(305px, calc(8.7vw + 40px), 123px);
+    height: clamp(205px, calc(8.7vw + 40px), 123px);
 
 }
 
