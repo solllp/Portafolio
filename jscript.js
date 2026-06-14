@@ -58,7 +58,7 @@ document.querySelectorAll('.section').forEach(s => observer.observe(s));
 
 
 //HORARIO
-const fechaObjetivo = new Date(2026, 5, 14, 13, 30, 0).getTime();
+const fechaObjetivo = new Date(2026, 5, 20, 19, 0, 0).getTime();
 let contadorFinalizado = false;
 let reboteFinishedId = null;
 
